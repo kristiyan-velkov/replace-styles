@@ -1,0 +1,23 @@
+{
+  "name": "@gfk/style-cli",
+  "version": "1.0.0",
+  "description": "The official @gfk/style-cli",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kristiyan Velkov",
+  "license": "ISC",
+  "bin": {
+    "hello": "./bin/index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "module-exists": "^0.4.0",
+    "ora": "^6.1.0",
+    "package-exists": "^1.1.2",
+    "yargs": "^17.4.0"
+  },
+  "devDependencies": {}
+}
