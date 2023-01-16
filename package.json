@@ -14,9 +14,9 @@
   "type": "module",
   "dependencies": {
     "chalk": "^5.0.1",
+    "js-module-exists": "^1.0.4",
     "module-exists": "^0.4.0",
     "ora": "^6.1.0",
-    "package-exists": "^1.1.2",
     "yargs": "^17.4.0"
   },
   "devDependencies": {}

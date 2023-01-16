@@ -1,13 +1,28 @@
-#!/usr/bin/env node
-"use strict";
+import { moduleExists, moduleExistsWithText, setTextColors } from "js-module-exists";
 
-import chalk from "chalk";
-import ora from "ora";
-import { moduleExist, moduleExistWithMessage } from "./module-exist.js";
+if(moduleExists("js-module-exists")) {
+    console.log(true);
+}
 
-moduleExistWithMessage("ora22", "Test", {
-  success: {
-    color: "#008000",
-    message: "Installed!",
-  },
-});
+
+setTextColors({
+    success: '#fff',
+})
+
+moduleExistsWithText("js-module-exists");
+
+
+
+// moduleExistsWithText("js-module-exists", {
+//   success: {
+//     text: "Module exists!",
+//     warn: {
+//       text: "Don't forget to support my work!",
+//     },
+//     info: {
+//       text: `Information
+//       name: js-module-exists
+//       author: Krisityan Velkov`,
+//     },
+//   },
+// });
