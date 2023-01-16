@@ -11,7 +11,6 @@
   "bin": {
     "hello": "./bin/index.js"
   },
-  "type": "module",
   "dependencies": {
     "chalk": "^5.0.1",
     "js-module-exists": "^1.0.4",
@@ -19,5 +18,8 @@
     "ora": "^6.1.0",
     "yargs": "^17.4.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "glob": "^8.1.0",
+    "path": "^0.12.7"
+  }
 }
