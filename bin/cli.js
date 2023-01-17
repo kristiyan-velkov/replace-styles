@@ -4,11 +4,10 @@
 import chalk from "chalk";
 import glob from "glob";
 import fs from "fs";
-import scanForFiles from "../lib/helpers/scan-for-files.js";
 
-// Replace selectors
+// Glob over the files
 
-const replaceCssSelectors = async (path, data, toReplace, selectors) => {
+const replaceCssSelectors = async (file, data, toReplace, selectors) => {
   selectors.forEach((selector) => {
     const matcher = `${selector}${toReplace.from};`;
     if (data.includes(matcher)) {
@@ -16,8 +15,9 @@ const replaceCssSelectors = async (path, data, toReplace, selectors) => {
       const regex = new RegExp(`${matcher}`, "gmi");
       const replacedResult = data.replace(regex, `${selector}${toReplace.to};`);
 
-      fs.writeFile(path, replacedResult, "utf8", function (err) {
+      fs.writeFile(file, replacedResult, "utf8", function (err) {
         if (err) throw err;
+        console.log(chalk.cyan("File was updated:", file));
       });
     } else {
       console.log(chalk.red("No matches!"));
@@ -25,28 +25,36 @@ const replaceCssSelectors = async (path, data, toReplace, selectors) => {
   });
 };
 
-// Read file
-
-const replaceInFile = (path, encoding, replace, selectors) => {
-  fs.readFile(path, encoding, (err, data) => {
-    if (err) throw err;
-
-    replace.forEach((toReplace) => {
-      replaceCssSelectors(path, data, toReplace, selectors);
+const writeInfile = (pathToFiles, encoding, replace, selectors) => {
+  glob.sync(pathToFiles, { nodir: true }).forEach((file) => {
+    fs.readFile(file, encoding, (err, data) => {
+      if (err) throw err;
+      replace.forEach((toReplace) => {
+        replaceCssSelectors(file, data, toReplace, selectors);
+      });
     });
   });
 };
 
-// Glob over the files
+const scanForFiles = (config) => {
+  const { pathToFiles, encoding = "utf8", replace, selectors } = config;
 
-const getStyleFiles = (config) => {
-  const { pathToFiles, encoding, replace, selectors } = config;
+  const callbackFunc = (error, files) => {
+    if (error) {
+      throw new Error(error);
+    }
 
-  const result = scanForFiles(pathToFiles);
+    if (files && files.length > 0) {
+      console.log(chalk.yellow.bold(`Found files: ${files.length}`));
+      console.table([...files]);
+      writeInfile(pathToFiles, encoding, replace, selectors);
+    } else {
+      console.log(chalk.red("No file founds!"));
+      console.log(chalk.cyan("Please, try to change the path to files."));
+    }
+  };
 
-  // glob.sync(pathToFiles, { nodir: true }).forEach(file  => {
-  //     replaceInFile(file, encoding || 'utf8', replace, selectors);
-  // });
+  glob(pathToFiles, callbackFunc);
 };
 
 // Config
@@ -62,4 +70,4 @@ const config = {
   ],
 };
 
-getStyleFiles(config);
+scanForFiles(config);
