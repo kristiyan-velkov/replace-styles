@@ -1,20 +1,32 @@
 {
-  "name": "@gfk/style-cli",
+  "name": "replace-in-style-file",
   "version": "1.0.0",
-  "description": "The official @gfk/style-cli",
-  "main": "bin/index.js",
+  "description": "Replace any property value in all of your *.css, *.sass or *.scss files",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Kristiyan Velkov",
-  "license": "ISC",
-  "bin": {
-    "hello": "./bin/index.js"
+  "author": {
+    "name": "Kristiyan Velkov - More_well",
+    "email": "christiyanweb@gmail.com",
+    "url": "https://www.linkedin.com/in/kristiyan-velkov-763130b3/"
   },
+  "license": "ISC",
+  "main": "index.js",
+  "bin": {
+    "hello": "./bin/cli.js"
+  },
+  "type": "module",
+  "keywords": [
+    "replace",
+    "css",
+    "sass",
+    "scss",
+    "file",
+    "css property"
+  ],
   "dependencies": {
     "chalk": "^5.0.1",
     "js-module-exists": "^1.0.4",
-    "module-exists": "^0.4.0",
     "ora": "^6.1.0",
     "yargs": "^17.4.0"
   },
