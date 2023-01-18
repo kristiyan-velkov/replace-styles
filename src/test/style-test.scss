@@ -1,8 +1,10 @@
+@import '@kris/style';
+@use '@kris/style' as kris-style;
 $blue: red;
 
 body {
 
-    background-color: red;
+    background-color: blue;
 
 }
 
@@ -13,9 +15,9 @@ div {
 
 .blue {
 
-    background-color: red;
+    background-color: blue;
 }
 
 .cover-blue-flag {
-    color: red;
+    color: blue;
 }
