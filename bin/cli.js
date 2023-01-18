@@ -8,36 +8,55 @@ import { combineMatchers } from "../lib/helpers/combine-matchers.js";
 
 // Glob over the files
 
-const writeInFiles = async (file, data, matchers) => {
+const writeInFiles = async (file, data, matchers, imports) => {
+  let findChanges;
+
   const writeData = (replacedData) => {
-    console.log(replacedData);
     fs.writeFile(file, replacedData, "utf8", function (err) {
       if (err) throw err;
       console.log(chalk.cyan("File was updated:", file));
     });
   };
 
+  if (imports.length) {
+    imports.forEach((item) => {
+      if (!data.includes(item)) {
+        data = `${item}\n${data}`;
+        findChanges = true;
+      }
+    });
+  }
+
   matchers.forEach((item) => {
     const regex = new RegExp(item.from, "gmi");
-    data = data.replace(regex, item.to);
+    if (data.includes(item.from)) {
+      data = data.replace(regex, item.to);
+      findChanges = true;
+    } else {
+      // console.log(chalk.red(`${item.from} was not found in file => ${file}`));
+    }
   });
 
-  writeData(data);
+  if (findChanges) {
+    writeData(data);
+  } else {
+    console.log(chalk.red(`${file} => Not changes found!`));
+  }
 };
 
-const readFiles = (paths, encoding, replace, selectors) => {
+const readFiles = async (paths, imports, encoding, replace, selectors) => {
   const matchers = combineMatchers(replace, selectors);
 
   glob.sync(paths, { nodir: true }).forEach((file) => {
     fs.readFile(file, encoding, (err, data) => {
       if (err) throw err;
-      writeInFiles(file, data, matchers);
+      writeInFiles(file, data, matchers, imports);
     });
   });
 };
 
 const scanForFiles = (config) => {
-  const { paths, encoding = "utf8", replace, selectors } = config;
+  const { paths, imports, encoding = "utf8", replace, selectors } = config;
 
   const callbackFunc = (error, files) => {
     if (error) {
@@ -47,7 +66,7 @@ const scanForFiles = (config) => {
     if (files && files.length > 0) {
       console.log(chalk.yellow.bold(`Found files: ${files.length}`));
       console.table([...files]);
-      readFiles(paths, encoding, replace, selectors);
+      readFiles(paths, imports, encoding, replace, selectors);
     } else {
       console.log(chalk.red("No file founds!"));
       console.log(chalk.cyan("Please, try to change the paths to files."));
@@ -60,12 +79,13 @@ const scanForFiles = (config) => {
 // Config
 
 const config = {
-  paths: "src/*.scss",
-  selectors: [": ", "color: ", "test: "],
+  paths: "src/**/*.{scss, sass, css}",
+  selectors: ["color: ", "test: "],
+  imports: ["@use '@kris/style' as kris-style;", "@import '@kris/style';"],
   replace: [
     {
       from: "red",
-      to: "orange",
+      to: "blue",
     },
     {
       from: "gold",
