@@ -79,7 +79,7 @@ const scanForFiles = (config) => {
 // Config
 
 const config = {
-  paths: "src/**/*.{scss, sass, css}",
+  paths: "src/**/*.{sass,scss,css}",
   selectors: ["color: ", "test: "],
   imports: ["@use '@kris/style' as kris-style;", "@import '@kris/style';"],
   replace: [
