@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Replace any property value in all of your *.css, *.sass or *.scss files",
   "scripts": {
+    "start": "node bin/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
