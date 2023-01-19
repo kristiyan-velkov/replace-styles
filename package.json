@@ -1,5 +1,5 @@
 {
-  "name": "replace-in-style-file",
+  "name": "style-replace",
   "version": "1.0.0",
   "description": "Replace any property value in all of your *.css, *.sass or *.scss files",
   "scripts": {
@@ -14,7 +14,7 @@
   "license": "ISC",
   "main": "index.js",
   "bin": {
-    "hello": "./bin/cli.js"
+    "replace-styles": "./bin/cli.js"
   },
   "type": "module",
   "keywords": [
@@ -27,12 +27,15 @@
   ],
   "dependencies": {
     "chalk": "^5.0.1",
+    "config": "^3.3.9",
+    "configstore": "^6.0.0",
+    "findup-sync": "^5.0.0",
     "js-module-exists": "^1.0.4",
     "ora": "^6.1.0",
+    "path": "^0.12.7",
     "yargs": "^17.4.0"
   },
   "devDependencies": {
-    "glob": "^8.1.0",
-    "path": "^0.12.7"
+    "glob": "^8.1.0"
   }
 }
