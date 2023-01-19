@@ -1,0 +1,23 @@
+@import '@kris/style';
+@use '@kris/style' as kris-style;
+$blue: red;
+
+body {
+
+    background-color: blue;
+
+}
+
+div {
+
+    color: green;
+}
+
+.blue {
+
+    background-color: blue;
+}
+
+.cover-blue-flag {
+    color: blue;
+}
