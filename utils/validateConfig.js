@@ -27,7 +27,7 @@ export const validateConfig = (config) => {
   }
 
   if (!(imports && imports.length)) {
-    console.log(chalk.cyan.bold("Missing imports!"));
+    console.log(chalk.cyan.bold("Not provided imports!"));
   }
 
   return configIsValid;

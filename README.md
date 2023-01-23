@@ -8,8 +8,23 @@
 
 <img src="src\assets\images\logo.png"  alt="replace-styles"/>
 
-**The Esiest way to replace in many style files some properties.
-Find all styles in the project and replace the style properties in those files.**.
+**The easiest way to replace style properties in many style files and @import or @include all needed sass dependencies!**
+
+Perfect tool if you want to replace multiple css properties with just a second, what is needed is just to provide config with your selectors, imports, replaces and the **replace-styles** will do the work for you!
+
+---
+
+**Why to use the replace-styles:**
+
+- Easy way to replace multiple css properties in any of founded files.
+- Will replace each css properties which is match the replace array.
+- Easy to specify path to your files via glob.
+  Example "src/\*_/_.{scss,sass}" which will select all files in src/ folder and nested ones with ends with .scss or .sass;
+- You can provide multiple selectors for search in files.
+- Will keep the older @imports and @includes and will combine with your new provided in config following the best practice.
+- Provide nice message with how many files found and list output of them.
+- Provide nice output with files which were change.
+- Easy to make a configuration.
 
 ## Table of contents
 
@@ -23,13 +38,6 @@ Find all styles in the project and replace the style properties in those files.*
 
 ## Installation
 
-- Via npm:
-
-```code
-npm install replace-style --save-dev
-
-```
-
 - Via yarn:
 
 ```code
@@ -37,76 +45,128 @@ yarn add replace-style -D
 
 ```
 
+- Via npm:
+
+```code
+npm install replace-style --save-dev
+
+```
+
 ## How to use?
+
+#### Full setup
+
+```js
+import replaceStyles from "replace-styles";
+
+const config = {
+  paths: "src/**/*.{scss,sass}",
+  selectors: ["color: "],
+  imports: ["@use '@my/style' as style;", "@import '@test/style';"],
+  replace: [
+    {
+      from: "red",
+      to: "blue",
+    },
+  ],
+};
+
+replaceStyles(config);
+```
 
 #### API
 
-| Method                     | Usage                                                                                                                                     |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **moduleExists()**         | Еasy to use a method that will return a boolean value after checking the module/ npm package.                                             |
-| **moduleExistsWithText()** | Will return a boolean value if the module/ package exists. Also will provide a nice terminal message which can be customized as you like. |
-| **setTextColors()**        | Sets default text colors for success, error, warn, and info messages. **Used only with moduleExistsWithText() method.**                   |
+| Method              | Usage                                                                        |
+| ------------------- | ---------------------------------------------------------------------------- |
+| **replaceStyles()** | Provide config and will replace everything based on specification in config. |
+| **config**          | Object.                                                                      |
 
-1. **moduleExists() method**
-
-- Accepts string and returns a boolean value.
+#### **Example config:**
 
 ```js
-import { moduleExists } from "replace-style";
-
-if (moduleExists("some-npm-package-name")) {
-  //=> true
-} else {
-  //=> false
-}
-```
-
-2. **moduleExistsWithText() method**
-
-   - **Info:** Easy to use fully customizable method for checking if the module/npm package exists. Coming with default terminal response. The message in the console (color, text ) can be changed to whatever value you want.
-
-| Properties | Desrciption                     | Return value |
-| ---------- | ------------------------------- | ------------ |
-| moduleName | module, npm package name        | boolean      |
-| options    | Custamizable terminal response. | object       |
-
-```js
-import { moduleExistsWithText } from "replace-style";
-
-moduleExistsWithText("some-npm-package-name");
-```
-
-<img src="src\assets\images\1.png"  alt="replace-style"/>
-
-- with options
-
-```js
-import { moduleExistsWithText } from "replace-style";
-
-moduleExistsWithText("some-npm-package-name", {
-  success: {
-    text: "Module exists!",
-    warn: {
-      text: "Don't forget to support my work!",
+ paths: "src/**/*.{scss,sass}",
+  selectors: ["color: ",],
+  imports: [
+    "@use '@my/style' as style;",
+    "@import '@test/style';",
+  ],
+  replace: [
+    {
+      from: "red",
+      to: "blue",
     },
-    info: {
-      text: `Information
-      name: replace-style
-      author: Krisityan Velkov`,
-    },
-  },
-});
+  ],
 ```
 
-<img src="src\assets\images\2.png"  alt="replace-style"/>
+| Config property | Type                        | Description                                                                                                                                               |
+| --------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **paths**       | Array - []                  | Path to files which will be replaces. Support glob selector.                                                                                              |
+| **selectors**   | Array - []                  | Selectors which be required to match in files to replace css properties.                                                                                  |
+| **imports**     | Array - []                  | Add @imports or @use to the top of each selected file. Will conbine existing ones with new ones to follow the order via first @use and then all @imports. |
+| **replace**     | Array of objects - object[] | Array of objects {"from", "to"}. Will replace evetything which match the selector in files **from** -> **to** property.                                   |
+| **encoding?**   | string                      | Encoding of the files. By default will be 'utf8'                                                                                                          |
 
 ## Examples:
 
-Full lists of examples how to use **replace-style** whit all supported options:
+**example 1:**
 
-- [Readme file](https://github.com/christiyan14/replace-style/blob/main/examples/Examples.md)
+1. Find files in src folder wich end with .scss;
+2. Replace all red colors with blue ones.
 
-- [JS file](https://github.com/christiyan14/replace-style/blob/main/examples/example.js)
+**Setup for example 1**:
+
+```js
+import replaceStyles from "replace-styles";
+
+const config = {
+  paths: "src/**/*.scss}",
+  selectors: [": "],
+  imports: [""],
+  replace: [
+    {
+      from: "red",
+      to: "blue",
+    },
+  ],
+};
+
+replaceStyles(config);
+```
+
+<img src="src\assets\images\before-after.png"  alt="replace-styles"/>
+
+---
+
+**Example 2:**
+
+1. Find files in src folder which end with .scss;
+2. Select all css properties.
+3. Add '@use '@test/style' as style;' of the top of the file.
+4. Replace all red colors with style.$blue sass variable.
+
+**Setup for example two**:
+
+```js
+import replaceStyles from "replace-styles";
+
+const config = {
+  paths: "src/**/*.scss}",
+  selectors: [": "],
+  imports: ["@use '@test/style' as style;"],
+  replace: [
+    {
+      from: "red",
+      to: "style.$blue",
+    },
+  ],
+};
+
+replaceStyles(config);
+```
+
+<img src="src\assets\images\before-after-wiht-includes.png"  alt="replace-styles"/>
+
+---
 
 ## Developer Support:
 

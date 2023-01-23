@@ -1,26 +1,17 @@
-@use '@kris/style' as kris-style;
-@use '@kris/style2' as kris-style2;
-@use '@test/style' as test-style;
-@import '@kris/style';
-@import '@test/style';
-
-$blue: orange;
-
 body {
-    background-color: orange;
+    color: blue;
 }
 
-p {
-
-    color: orange;
-}
-
-ul {
-
-    color: orange;
-
-    li {
-        color: orange;
-        background-color: pink;
+div {
+    p {
+        color: blue;
     }
+
+    span {
+        color: blue;
+    }
+}
+
+span {
+    color: blue;
 }
