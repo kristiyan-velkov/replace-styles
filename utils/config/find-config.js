@@ -10,7 +10,7 @@ const validateConfig = async (config) => {
   }
 };
 
-const getConfig = () => {
+export const findConfig = () => {
   const configFile = findup("replace-styles.config.json");
 
   if (configFile) {
@@ -22,5 +22,3 @@ const getConfig = () => {
     console.log(chalk.red.bold("replace-styles.config.json was not found!"));
   }
 };
-
-export default getConfig;

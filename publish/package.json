@@ -13,9 +13,6 @@
   },
   "license": "ISC",
   "main": "index.js",
-  "bin": {
-    "replace-styles": "./bin/cli.js"
-  },
   "type": "module",
   "keywords": [
     "replace",
