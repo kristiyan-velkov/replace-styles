@@ -1,6 +1,6 @@
 import chalk from "chalk";
 
-export const checkConfig = (config) => {
+export const validateConfig = (config) => {
   const { paths, imports, encoding, replace, selectors } = config;
 
   let configIsValid = true;
@@ -11,7 +11,6 @@ export const checkConfig = (config) => {
   }
 
   if (!(replace && replace.length)) {
-    console.log(!replace, replace.length);
     console.log(chalk.red.bold("Invalid config! Replace Array is missing."));
     configIsValid = false;
   }
@@ -34,4 +33,4 @@ export const checkConfig = (config) => {
   return configIsValid;
 };
 
-export default checkConfig;
+export default validateConfig;

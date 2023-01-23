@@ -1,7 +1,10 @@
-@import '@kris/style';
 @use '@kris/style' as kris-style;
-$blue: orange;
+@use '@kris/style2' as kris-style2;
+@use '@test/style' as test-style;
+@import '@kris/style';
+@import '@test/style';
 
+$blue: orange;
 
 body {
     background-color: orange;

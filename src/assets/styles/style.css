@@ -1,0 +1,6 @@
+@use '@kris/style2' as kris-style2;
+@use '@kris/style' as kris-style;
+@import '@kris/style';
+body {
+    color: red;
+}

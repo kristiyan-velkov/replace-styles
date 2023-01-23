@@ -1,7 +1,7 @@
 "use strict";
 
 import glob from "glob";
-import combineMatchers from "../combine-matchers.js";
+import combineMatchers from "../utils/combine-matchers.js";
 import writeInFiles from "./write-in-files.js";
 import fs from "fs";
 
