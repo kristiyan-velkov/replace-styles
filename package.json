@@ -13,9 +13,6 @@
   },
   "license": "ISC",
   "main": "index.js",
-  "bin": {
-    "replace-styles": "./bin/cli.js"
-  },
   "type": "module",
   "keywords": [
     "replace",
@@ -27,9 +24,8 @@
   ],
   "dependencies": {
     "chalk": "^5.0.1",
-    "findup-sync": "^5.0.0"
-  },
-  "devDependencies": {
+    "findup-sync": "^5.0.0",
     "glob": "^8.1.0"
-  }
+  },
+  "devDependencies": {}
 }

@@ -41,14 +41,14 @@ Perfect tool if you want to replace multiple css properties with just a second, 
 - Via yarn:
 
 ```code
-yarn add replace-style -D
+yarn add replace-styles -D
 
 ```
 
 - Via npm:
 
 ```code
-npm install replace-style --save-dev
+npm install replace-styles --save-dev
 
 ```
 
@@ -173,7 +173,7 @@ replaceStyles(config);
 - If you saw some issue/bug 🐛 related to the specific release version.
 - If you want some new feature or change to be added/implemented. 😊
 
-Please, contact the creator of the **replace-style**, so he will be able to fix or improve it:
+Please, contact the creator of the **replace-styles**, so he will be able to fix or improve it:
 
 **Kristiyan Velkov**
 
