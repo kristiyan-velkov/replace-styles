@@ -1,8 +1,7 @@
-#!/usr/bin/env node
 "use strict";
 import chalk from "chalk";
-import validateConfig from "../utils/validateConfig.js";
-import findStyleFiles from "../src/find-style-files.js";
+import validateConfig from "./utils/validateConfig.js";
+import findStyleFiles from "./find-style-files.js";
 
 export const replaceStyles = (config) => {
   if (config && validateConfig(config)) {
@@ -12,20 +11,18 @@ export const replaceStyles = (config) => {
   }
 };
 
-export default replaceStyles;
-
-// Example Config
-
 const config = {
-  paths: "src/**/*.scss",
+  paths: "../src/**/*.scss",
   selectors: ["color: "],
-  imports: [],
+  imports: ["@use '@kris/style' as kris-style;"],
   replace: [
     {
-      from: "red",
-      to: "blue",
+      from: "blue",
+      to: "red",
     },
   ],
 };
 
 replaceStyles(config);
+
+export default replaceStyles;
