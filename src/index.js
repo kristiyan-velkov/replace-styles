@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 "use strict";
 import chalk from "chalk";
-import validateConfig from "../utils/validateConfig.js";
-import findStyleFiles from "../src/find-style-files.js";
+import validateConfig from "./utils/config/validate-config.js";
+import findStyleFiles from "./find-style-files.js";
 
 export const replaceStyles = (config) => {
   if (config && validateConfig(config)) {
@@ -22,8 +22,8 @@ const config = {
   imports: [],
   replace: [
     {
-      from: "red",
-      to: "blue",
+      from: "blue",
+      to: "red",
     },
   ],
 };
