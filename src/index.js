@@ -22,8 +22,8 @@ const config = {
   imports: [],
   replace: [
     {
-      from: "blue",
-      to: "red",
+      from: "gfk-style.$red",
+      to: "gfk-style.$kiro",
     },
   ],
 };

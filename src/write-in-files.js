@@ -18,9 +18,8 @@ const applyChanges = async (data, imports, matchers) => {
     fileWasChanged = true;
   }
   matchers.forEach((item) => {
-    const regex = new RegExp(item.from, "gmi");
     if (data.includes(item.from)) {
-      data = data.replace(regex, item.to);
+      data = data.replaceAll(item.from, item.to);
       fileWasChanged = true;
     }
   });
