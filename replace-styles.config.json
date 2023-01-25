@@ -1,17 +1,33 @@
 {
-    "paths": "../src/**/*.{sass,scss,css}",
+    "paths": "./src/**/*.{sass,scss,css}",
     "selectors": [
         "color: ",
         "test: "
     ],
     "imports": [
         "@use '@kris/style' as kris-style;",
-        "@import '@kris/style';"
+        "@import '@kris/style';",
+        "@use '@test/style' as kris-style;",
+        "@import '@test/style';",
+        "@use '@test2/style' as kris-style;",
+        "@import '@test2/style';"
     ],
     "replace": [
         {
+            "from": "orange",
+            "to": "green"
+        },
+        {
+            "from": "blue",
+            "to": "green"
+        },
+        {
             "from": "red",
             "to": "blue"
+        },
+        {
+            "from": "9000",
+            "to": "gfk-style.$z-index-modal"
         }
     ]
 }

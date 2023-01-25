@@ -1,17 +1,25 @@
+@use '@kris/style' as kris-style;
+@use '@test/style' as kris-style;
+@use '@test2/style' as kris-style;
+@import '@kris/style';
+@import '@test/style';
+@import '@test2/style';
+
 body {
-    color: gfk-style.$kiro;
+    color: green;
+    z-index: 9000;
 }
 
 div {
     p {
-        color: gfk-style.$kiro;
+        color: green;
     }
 
-    span {
-        color: gfk-style.$kiro;
+    s span {
+        color: green;
     }
 }
 
 span {
-    color: gfk-style.$kiro;
+    color: green;
 }
