@@ -13,22 +13,5 @@ export const replaceStyles = (config) => {
   }
 };
 
-// export default replaceStyles;
-
-// Example Config
-
-// const config = {
-//   paths: "src/**/*.scss",
-//   selectors: ["color: "],
-//   imports: [],
-//   replace: [
-//     {
-//       from: "gfk-style.$red",
-//       to: "gfk-style.$kiro",
-//     },
-//   ],
-// };
-
-const config = findConfig();
-
-replaceStyles(config);
+replaceStyles.findConfig = findConfig;
+export default replaceStyles;
