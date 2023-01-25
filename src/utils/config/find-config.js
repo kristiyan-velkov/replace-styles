@@ -12,15 +12,14 @@ const checkConfig = async (config) => {
 
 export const findConfig = () => {
   const configFile = findup("replace-styles.config.json");
-
+  let config;
   if (configFile) {
-    fs.readFile(configFile, "utf8", (err, config) => {
-      if (err) throw err;
-      checkConfig(JSON.parse(config));
-    });
+    config = fs.readFileSync(configFile, "utf8");
   } else {
     console.log(chalk.red.bold("replace-styles.config.json was not found!"));
   }
+
+  if (config) return JSON.parse(config);
 };
 
 export default findConfig;

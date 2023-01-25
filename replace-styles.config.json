@@ -1,5 +1,5 @@
 {
-    "paths": "src/**/*.{sass,scss,css}",
+    "paths": "../src/**/*.{sass,scss,css}",
     "selectors": [
         "color: ",
         "test: "
