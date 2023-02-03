@@ -15,7 +15,3 @@ export const replaceStyles = (config) => {
 
 replaceStyles.findConfig = findConfig;
 export default replaceStyles;
-
-// const config = replaceStyles.findConfig();
-
-// replaceStyles(config);

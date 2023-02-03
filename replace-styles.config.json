@@ -1,33 +1,71 @@
 {
     "paths": "./src/**/*.{sass,scss,css}",
-    "selectors": [
-        "color: ",
-        "test: "
-    ],
-    "imports": [
-        "@use '@kris/style' as kris-style;",
-        "@import '@kris/style';",
-        "@use '@test/style' as kris-style;",
-        "@import '@test/style';",
-        "@use '@test2/style' as kris-style;",
-        "@import '@test2/style';"
-    ],
-    "replace": [
+    "replaces": [
         {
-            "from": "orange",
-            "to": "green"
+            "selectors": [
+                ": ",
+                "color: ",
+                "background-color: "
+            ],
+            "replace": [
+                {
+                    "from": "#bde5bd",
+                    "to": "gfk-style.$green-100"
+                },
+                {
+                    "from": "green",
+                    "to": "gfk-style.$green"
+                },
+                {
+                    "from": "red",
+                    "to": "blue"
+                }
+            ]
         },
         {
-            "from": "blue",
-            "to": "green"
+            "selectors": [
+                "font-size: "
+            ],
+            "replace": [
+                {
+                    "from": "1rem",
+                    "to": "gfk-style.$body"
+                }
+            ]
         },
         {
-            "from": "red",
-            "to": "blue"
+            "selectors": [
+                "padding: ",
+                "margin: "
+            ],
+            "replace": [
+                {
+                    "from": "4px",
+                    "to": "gfk-style.$base-size"
+                }
+            ]
         },
         {
-            "from": "9000",
-            "to": "gfk-style.$z-index-modal"
+            "selectors": [
+                "border-radius: "
+            ],
+            "replace": [
+                {
+                    "from": "4px",
+                    "to": "gfk-style.$border-radius"
+                }
+            ]
+        },
+        {
+            "selectors": [
+                "z-index: "
+            ],
+            "replace": [
+                {
+                    "from": "9000",
+                    "to": "gfk-style.$z-index-modal"
+                }
+            ]
         }
     ]
 }
