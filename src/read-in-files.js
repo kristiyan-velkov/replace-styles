@@ -5,8 +5,8 @@ import combineMatchers from "./utils/combine-matchers.js";
 import writeInFiles from "./write-in-files.js";
 import fs from "fs";
 
-const readFiles = async (paths, imports, encoding, replace, selectors) => {
-  const matchers = combineMatchers(replace, selectors);
+const readFiles = async (paths, imports, encoding, replaces) => {
+  const matchers = combineMatchers(replaces);
 
   glob.sync(paths, { nodir: true }).forEach((file) => {
     fs.readFile(file, encoding, (err, data) => {

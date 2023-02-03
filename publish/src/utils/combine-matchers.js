@@ -1,12 +1,22 @@
-export const combineMatchers = (o, r) => {
-  let t = [];
+let extractMatchers = (t, e) => {
+  let r = [];
   return (
-    r.forEach((r) => {
-      o.forEach((o) => {
-        t.push({ from: `${r}${o.from}`, to: `${r}${o.to}` });
+    t.forEach((t) => {
+      e.forEach((e) => {
+        r.push({ from: `${t}${e.from}`, to: `${t}${e.to}` });
       });
     }),
-    t
+    r
+  );
+};
+export const combineMatchers = (t) => {
+  let e = [];
+  return (
+    t.forEach((t) => {
+      let { selectors: r, replace: c } = t;
+      e.push(...extractMatchers(r, c));
+    }),
+    e
   );
 };
 export default combineMatchers;

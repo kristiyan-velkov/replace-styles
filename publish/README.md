@@ -63,10 +63,15 @@ const config = {
   paths: "src/**/*.{scss,sass}",
   selectors: ["color: "],
   imports: ["@use '@my/style' as style;", "@import '@test/style';"],
-  replace: [
+  replaces: [
     {
-      from: "red",
-      to: "blue",
+      selectors: ["color: "],
+      replace: [
+        {
+          from: "red",
+          to: "style.$red",
+        },
+      ],
     },
   ],
 };
@@ -84,27 +89,62 @@ replaceStyles(config);
 #### **Example config:**
 
 ```js
- paths: "src/**/*.{scss,sass}",
-  selectors: ["color: ",],
-  imports: [
-    "@use '@my/style' as style;",
-    "@import '@test/style';",
-  ],
-  replace: [
+const config = {
+  paths: "src/**/*.{scss,sass}",
+  imports: ["@use '@my/style' as style;"],
+  replaces: [
     {
-      from: "red",
-      to: "blue",
+      selectors: ["color: ", "background-color: "],
+      replace: [
+        {
+          from: "#bde5bd",
+          to: "style.$green",
+        },
+        {
+          from: "#ffffff",
+          to: "style.$white",
+        },
+        {
+          from: "blue",
+          to: "#0000FF",
+        },
+      ],
+    },
+    {
+      selectors: ["padding: ", "margin: "],
+      replace: [
+        {
+          from: "5px",
+          to: "style.$small-size",
+        },
+      ],
     },
   ],
+};
 ```
 
 | Config property | Type                        | Description                                                                                                                                               |
 | --------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **paths**       | Array - []                  | Path to files which will be replaces. Support glob selector.                                                                                              |
-| **selectors**   | Array - []                  | Selectors which be required to match in files to replace css properties.                                                                                  |
 | **imports**     | Array - []                  | Add @imports or @use to the top of each selected file. Will conbine existing ones with new ones to follow the order via first @use and then all @imports. |
-| **replace**     | Array of objects - object[] | Array of objects {"from", "to"}. Will replace evetything which match the selector in files **from** -> **to** property.                                   |
+| **replaces**    | Array of objects - object[] | Array of objects {selectors: ['string'], replace:[{from:, to:}]}. Will replace evetything which match the selector in files **from** -> **to** property.  |
 | **encoding?**   | string                      | Encoding of the files. By default will be 'utf8'                                                                                                          |
+
+Replaces array structure:
+
+```js
+replaces: [
+  {
+    selectors: ["string of selectors"],
+    replace: [
+      {
+        from: "string to find to replace",
+        to: "string to replace",
+      },
+    ],
+  },
+];
+```
 
 ## Examples:
 
@@ -120,14 +160,16 @@ import replaceStyles from "replace-styles";
 
 const config = {
   paths: "src/**/*.scss}",
-  selectors: [": "],
   imports: [""],
-  replace: [
+  replaces: [
     {
-      from: "red",
-      to: "blue",
-    },
-  ],
+      selectors: [': '],
+      replace: [
+        from: "red",
+        to: "blue",
+      ]
+    }
+  ]
 };
 
 replaceStyles(config);
@@ -142,7 +184,7 @@ replaceStyles(config);
 1. Find files in src folder which end with .scss;
 2. Select all css properties.
 3. Add '@use '@test/style' as style;' of the top of the file.
-4. Replace all red colors with style.$blue sass variable.
+4. Replace all red colors with style.$red sass variable.
 
 **Setup for example two**:
 
@@ -151,14 +193,16 @@ import replaceStyles from "replace-styles";
 
 const config = {
   paths: "src/**/*.scss}",
-  selectors: [": "],
   imports: ["@use '@test/style' as style;"],
-  replace: [
+  replaces: [
     {
-      from: "red",
-      to: "style.$blue",
-    },
-  ],
+      selectors: [': '],
+      replace: [
+        from: "red",
+        to: "style.$red",
+      ]
+    }
+  ]
 };
 
 replaceStyles(config);

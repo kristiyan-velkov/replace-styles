@@ -12,5 +12,4 @@ export const findConfig = () => {
   )
     return JSON.parse(r);
 };
-
 export default findConfig;

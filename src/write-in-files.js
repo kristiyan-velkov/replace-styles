@@ -17,12 +17,14 @@ const applyChanges = async (data, imports, matchers) => {
     data = `${imports}\n\n${data}`;
     fileWasChanged = true;
   }
+
   matchers.forEach((item) => {
     if (data.includes(item.from)) {
       data = data.replaceAll(item.from, item.to);
       fileWasChanged = true;
     }
   });
+
   return { data, fileWasChanged };
 };
 
