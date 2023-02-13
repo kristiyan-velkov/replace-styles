@@ -1,15 +1,15 @@
 import o from "findup-sync";
-import e from "chalk";
-import f from "fs";
-export const findConfig = () => {
-  let n = o("replace-styles.config.json"),
-    r;
+import f from "chalk";
+import r from "fs";
+export const findConfig = (n) => {
+  let t = o(n),
+    i;
   if (
-    (n
-      ? (r = f.readFileSync(n, "utf8"))
-      : console.log(e.red.bold("replace-styles.config.json was not found!")),
-    r)
+    (t
+      ? (i = r.readFileSync(t, "utf8"))
+      : console.log(f.red.bold(`${n} was not found!`)),
+    i)
   )
-    return JSON.parse(r);
+    return JSON.parse(i);
 };
 export default findConfig;
