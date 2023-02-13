@@ -1,6 +1,6 @@
 {
   "name": "replace-styles",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Replace any css property in all specified files in config.",
   "scripts": {
     "start": "node bin/cli.js",
@@ -24,9 +24,7 @@
   ],
   "dependencies": {
     "chalk": "^5.0.1",
-    "findup-sync": "^5.0.0"
-  },
-  "devDependencies": {
+    "findup-sync": "^5.0.0",
     "glob": "^8.1.0"
   }
 }
