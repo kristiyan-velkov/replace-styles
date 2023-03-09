@@ -4,7 +4,6 @@ import e from "fs";
 let writeData = (r, a) => {
     e.writeFile(r, a, "utf8", function (e) {
       if (e) throw e;
-      console.log(t.cyan("File was updated:", r));
     });
   },
   applyChanges = async (t, e, r) => {
