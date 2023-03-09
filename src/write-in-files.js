@@ -6,7 +6,6 @@ import fs from "fs";
 const writeData = (file, replacedData) => {
   fs.writeFile(file, replacedData, "utf8", function (err) {
     if (err) throw err;
-    console.log(chalk.cyan("File was updated:", file));
   });
 };
 
