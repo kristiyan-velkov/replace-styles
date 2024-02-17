@@ -1,6 +1,6 @@
 {
   "name": "replace-styles",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Replace any css property in all specified files in config.",
   "scripts": {
     "start": "node bin/cli.js",
@@ -11,6 +11,14 @@
     "email": "christiyanweb@gmail.com",
     "url": "https://www.linkedin.com/in/kristiyan-velkov-763130b3/"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristiyan-velkov/replace-styles.git"
+  },
+  "homepage": "https://github.com/kristiyan-velkov/replace-styles#readme",
+  "bugs": {
+    "url": "https://github.com/kristiyan-velkov/replace-styles/issues"
+  },
   "license": "ISC",
   "main": "index.js",
   "type": "module",
@@ -20,7 +28,11 @@
     "sass",
     "scss",
     "file",
-    "css property"
+    "css property",
+    "replace existing css styles",
+    "easy replace style",
+    "Css replacer",
+    "easy to replace"
   ],
   "dependencies": {
     "chalk": "^5.0.1",
