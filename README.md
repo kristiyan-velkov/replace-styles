@@ -1,12 +1,14 @@
-<a href="https://www.linkedin.com/in/kristiyan-velkov-763130b3/" target="_blank">
-    <img src="https://drive.google.com/uc?export=view&id=1CaHw3OczzvfSAnF2FeU9HH3EruqRDT0q" alt="Morewell logo" title="Morewell" align="right" />
-</a>
+<div align="center">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./images/replace-styles.png">
+      <img src="./images/replace-styles.png" height="auto">
+    </picture>
 
-# replace-styles
+[![Follow me](https://img.shields.io/badge/sponsors-99+-orange.svg)](https://github.com/kristiyan-velkov) [![Sponsors](https://img.shields.io/badge/Follow-120-blue?logo=github&style=social.svg)](https://github.com/kristiyan-velkov) [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/) [![Node Version](https://img.shields.io/badge/node-%3E%3D%2020.0.0-brightgreen.svg)](https://nodejs.org/en/)
 
-[![Follow me](https://img.shields.io/badge/sponsors-99+-orange.svg)](https://github.com/christiyan14) [![Sponsors](https://img.shields.io/badge/Follow-120-blue?logo=github&style=social.svg)](https://github.com/christiyan14) [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/) [![Node Version](https://img.shields.io/badge/node-%3E%3D%2014.0.4-brightgreen.svg)](https://nodejs.org/en/)
+<h1>Replace Styles</h1>
 
-<img src="https://drive.google.com/uc?export=view&id=1LtrF80LvjrT0hnL1Pu8FTafznuAbL7SF"  alt="replace-styles"/>
+</div>
 
 **The easiest way to replace style properties in many style files and @import or @include all needed sass dependencies!**
 
@@ -175,7 +177,7 @@ const config = {
 replaceStyles(config);
 ```
 
-<img src="https://drive.google.com/uc?export=view&id=1fPfCvWgJPH22DEq8Z_W0VQxVuFiD4TM4"  alt="replace-styles"/>
+<img src="./images/before-after.png"  alt="replace-styles"/>
 
 ---
 
@@ -208,8 +210,6 @@ const config = {
 replaceStyles(config);
 ```
 
-<img src="https://drive.google.com/uc?export=view&id=1dccZXRpXEe-efLRqbE2ODZdyqHtMgHkr"  alt="replace-styles"/>
-
 ---
 
 ## Developer Support:
@@ -231,12 +231,12 @@ Please, contact the creator of the **replace-styles**, so he will be able to fix
 
 If you like my work and want to support me to work hard, please donate via:
 
-| <a href="https://revolut.me/kristiyanvelkov" title="Link to Revolut">Revolut</a>                                                                                                                           | <a href="https://www.buymeacoffee.com/kristiyanVelkov" title="Link to Buy me a coffee">Buy me a coffee</a>                                                                                                                                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a href="https://revolut.me/kristiyanvelkov" target="_blank"><img src="https://drive.google.com/uc?export=view&id=1W9nlJfo6kTpf-nwCzo-8vJWqq7yW-9oB" width="200px"  alt="Krisityan Velkov - Revolut"/></a> | <a href="https://www.buymeacoffee.com/kristiyanVelkov" style="background:red,height='500px'"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=kristiyanVelkov&button_colour=000000&font_colour=ffffff&font_family=Lato&outline_colour=ffffff&coffee_colour=FFDD00" width="200px"/></a> |
+| <a href="https://revolut.me/kristiyanvelkov" title="Link to Revolut">Revolut</a>                                                                                    | <a href="https://www.buymeacoffee.com/kristiyanVelkov" title="Link to Buy me a coffee">Buy me a coffee</a>                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a href="https://revolut.me/kristiyanvelkov" target="_blank"><img src="./images/kristiyan.velkov-revolut.png" width="200px"  alt="Krisityan Velkov - Revolut"/></a> | <a href="https://www.buymeacoffee.com/kristiyanVelkov" style="background:red,height='500px'"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=kristiyanVelkov&button_colour=000000&font_colour=ffffff&font_family=Lato&outline_colour=ffffff&coffee_colour=FFDD00" width="200px"/></a> |
 
 Thanks a bunch for supporting me! It means a LOT 😍
 
 ---
 
-Copyright ©️2023. All rights reserved.
+Copyright ©️2024. All rights reserved.
