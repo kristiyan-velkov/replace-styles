@@ -1,6 +1,9 @@
 {
   "name": "replace-styles",
   "version": "1.0.11",
+  "engines": {
+    "node": ">=22.23.4"
+  },
   "description": "Replace any css property in all specified files in config.",
   "scripts": {
     "start": "node bin/cli.js",
